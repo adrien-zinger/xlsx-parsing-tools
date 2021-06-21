@@ -40,7 +40,6 @@ function getJsonFromTable(table) {
     if (table[0][i] !== "") {
       var key = keyAdapter(table[0][i], id);
       if (key === undefined) continue;
-      console.log('parse key', key);
 
       if (keyCount[key] === undefined) {
         keyCount[key] = 1;
