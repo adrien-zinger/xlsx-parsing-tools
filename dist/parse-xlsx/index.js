@@ -1,20 +1,27 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault3 = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireDefault2 = _interopRequireDefault3(require("@babel/runtime/helpers/interopRequireDefault"));
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.xlsxParser = xlsxParser;
-exports.xlsxMdPrint = xlsxMdPrint;
+exports.xlsxMdPrint = exports.xlsxParser = undefined;
 
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+var _slicedToArray2 = require("@babel/runtime/helpers/slicedToArray");
 
-var _xlsx = _interopRequireDefault(require("xlsx"));
+var _slicedToArray3 = (0, _interopRequireDefault2["default"])(_slicedToArray2);
+
+var _xlsx = require("xlsx");
+
+var _xlsx2 = (0, _interopRequireDefault2["default"])(_xlsx);
 
 var _alphabet = require("./alphabet.js");
 
-var _config2 = _interopRequireDefault(require("./config.js"));
+var _config2 = require("./config.js");
+
+var _config3 = (0, _interopRequireDefault2["default"])(_config2);
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
@@ -31,7 +38,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
  * @returns
  */
 function graps(worksheet, _ref, map) {
-  var _ref2 = (0, _slicedToArray2["default"])(_ref, 4),
+  var _ref2 = (0, _slicedToArray3["default"])(_ref, 4),
       letter_start = _ref2[0],
       letter_end = _ref2[1],
       num_start = _ref2[2],
@@ -166,11 +173,11 @@ function removeEmpties(table) {
 
 function xlsxParser(path) {
   var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-  if (config === undefined) config = _config2["default"];
+  if (config === undefined) config = _config3["default"];
   return new Promise(function (res) {
     var ret = [];
 
-    var workbook = _xlsx["default"].readFile(path);
+    var workbook = _xlsx2["default"].readFile(path);
 
     var _config = config,
         sheetignore = _config.sheetignore,
@@ -202,4 +209,7 @@ function xlsxParser(path) {
     res(ret);
   });
 }
+
+exports.xlsxParser = xlsxParser;
+exports.xlsxMdPrint = xlsxMdPrint;
 //# sourceMappingURL=index.js.map

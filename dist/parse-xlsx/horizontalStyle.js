@@ -34,12 +34,20 @@ function getJsonFromTable(table) {
   };
   var out = {};
   var keyLine = {};
+  var keyCount = {};
 
   for (var i = 0; i < table[0].length; ++i) {
     if (table[0][i] !== "") {
       var key = keyAdapter(table[0][i], id);
       if (key === undefined) continue;
-      keyLine[i] = key;
+      console.log('parse key', key);
+
+      if (keyCount[key] === undefined) {
+        keyCount[key] = 1;
+        keyLine[i] = key;
+      } else {
+        keyLine[i] = key + ++keyCount[key];
+      }
     }
   }
 

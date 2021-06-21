@@ -1,23 +1,25 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault3 = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireDefault2 = _interopRequireDefault3(require("@babel/runtime/helpers/interopRequireDefault"));
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getAlphabetSerie = getAlphabetSerie;
-exports.alphabet = void 0;
+exports.alphabet = exports.getAlphabetSerie = undefined;
 
-var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+var _regenerator = require("@babel/runtime/regenerator");
 
-var _marked = /*#__PURE__*/_regenerator["default"].mark(gen);
+var _regenerator2 = (0, _interopRequireDefault2["default"])(_regenerator);
+
+var _marked = /*#__PURE__*/_regenerator2["default"].mark(gen);
 
 var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "Z"];
-exports.alphabet = alphabet;
 
 function gen(start) {
   var index, alen;
-  return _regenerator["default"].wrap(function gen$(_context) {
+  return _regenerator2["default"].wrap(function gen$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
@@ -63,4 +65,7 @@ function getAlphabetSerie() {
   var start = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "A";
   return gen(start);
 }
+
+exports.getAlphabetSerie = getAlphabetSerie;
+exports.alphabet = alphabet;
 //# sourceMappingURL=alphabet.js.map
