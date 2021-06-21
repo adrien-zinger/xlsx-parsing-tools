@@ -1,6 +1,5 @@
 {
   "name": "javascript-es6",
-  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
