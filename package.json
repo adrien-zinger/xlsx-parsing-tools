@@ -1,0 +1,27 @@
+{
+  "name": "javascript-es6",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "xlsx": "^0.17.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.1",
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.14.1",
+    "eslint": "^7.28.0",
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "jest",
+    "compile": "babel src --out-dir lib --source-maps --presets=@babel/env",
+    "xlsx": "npx babel-node ./scripts/checkXLSX.js > out.md",
+    "prettify": "prettier --write '{,!(node_modules)/**/}*.js'"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,7 @@
+node_modules
+package-lock.json
+*.xlsx
+out.md
+.DS_Store
+scripts/config.js
+xlsxGenerate.js
