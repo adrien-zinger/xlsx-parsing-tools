@@ -153,7 +153,7 @@ function removeEmpties(table) {
       for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
         var _c = _step2.value;
 
-        _c.splice(l, 1);
+        _c.splice(l - 1, 1);
       }
     } catch (err) {
       _iterator2.e(err);
