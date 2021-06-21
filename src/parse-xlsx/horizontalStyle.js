@@ -27,7 +27,6 @@ export default function getJsonFromTable(
     if (table[0][i] !== "") {
       const key = keyAdapter(table[0][i], id)
       if (key === undefined) continue
-      console.log('parse key', key)
       if (keyCount[key] === undefined) {
         keyCount[key] = 1
         keyLine[i] = key
