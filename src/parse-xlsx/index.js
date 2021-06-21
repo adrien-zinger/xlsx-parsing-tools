@@ -66,6 +66,7 @@ function removeEmpties(table) {
     }
     if (rm) lines_to_remove.push(x)
   }
+  console.log(lines_to_remove)
   for (let y = 0; y < width; ++y) {
     let rm = true
     for (let x = 0; x < height; ++x) {
@@ -76,8 +77,13 @@ function removeEmpties(table) {
     }
     if (rm) column_to_remove.push(y)
   }
-  for (const c of column_to_remove) table.splice(c, 1)
-  for (const l of lines_to_remove) for (let c of table) c.splice(l - 1, 1)
+  table = table.filter((val, index) => {
+    return column_to_remove.indexOf(index) === -1
+  })
+  for (let i = 0; i < table.length; ++i)
+    table[i] = table[i].filter((val, index) => {
+      return lines_to_remove.indexOf(index) === -1
+    })
   return table
 }
 
@@ -108,4 +114,4 @@ function xlsxParser(path, config = undefined) {
   })
 }
 
-export { xlsxParser, xlsxMdPrint }
+export { xlsxParser, xlsxMdPrint, removeEmpties }
