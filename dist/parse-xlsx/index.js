@@ -7,7 +7,7 @@ var _interopRequireDefault2 = _interopRequireDefault3(require("@babel/runtime/he
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.xlsxMdPrint = exports.xlsxParser = undefined;
+exports.removeEmpties = exports.xlsxMdPrint = exports.xlsxParser = undefined;
 
 var _slicedToArray2 = require("@babel/runtime/helpers/slicedToArray");
 
@@ -125,6 +125,8 @@ function removeEmpties(table) {
     if (rm) lines_to_remove.push(x);
   }
 
+  console.log(lines_to_remove);
+
   for (var _y = 0; _y < width; ++_y) {
     var _rm = true;
 
@@ -138,28 +140,14 @@ function removeEmpties(table) {
     if (_rm) column_to_remove.push(_y);
   }
 
-  for (var _i2 = 0, _column_to_remove = column_to_remove; _i2 < _column_to_remove.length; _i2++) {
-    var c = _column_to_remove[_i2];
-    table.splice(c, 1);
-  }
+  table = table.filter(function (val, index) {
+    return column_to_remove.indexOf(index) === -1;
+  });
 
-  for (var _i3 = 0, _lines_to_remove = lines_to_remove; _i3 < _lines_to_remove.length; _i3++) {
-    var l = _lines_to_remove[_i3];
-
-    var _iterator2 = _createForOfIteratorHelper(table),
-        _step2;
-
-    try {
-      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-        var _c = _step2.value;
-
-        _c.splice(l - 1, 1);
-      }
-    } catch (err) {
-      _iterator2.e(err);
-    } finally {
-      _iterator2.f();
-    }
+  for (var i = 0; i < table.length; ++i) {
+    table[i] = table[i].filter(function (val, index) {
+      return lines_to_remove.indexOf(index) === -1;
+    });
   }
 
   return table;
@@ -183,12 +171,12 @@ function xlsxParser(path) {
         sheetignore = _config.sheetignore,
         limits = _config.limits;
 
-    var _iterator3 = _createForOfIteratorHelper(workbook.SheetNames),
-        _step3;
+    var _iterator2 = _createForOfIteratorHelper(workbook.SheetNames),
+        _step2;
 
     try {
-      for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-        var name = _step3.value;
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var name = _step2.value;
         if (sheetignore.length > 0 && sheetignore.indexOf(name) >= 0) continue;
         var worksheet = workbook.Sheets[name];
         var lims = limits[name] !== undefined ? limits[name] : limits["default"];
@@ -201,9 +189,9 @@ function xlsxParser(path) {
         });
       }
     } catch (err) {
-      _iterator3.e(err);
+      _iterator2.e(err);
     } finally {
-      _iterator3.f();
+      _iterator2.f();
     }
 
     res(ret);
@@ -212,4 +200,5 @@ function xlsxParser(path) {
 
 exports.xlsxParser = xlsxParser;
 exports.xlsxMdPrint = xlsxMdPrint;
+exports.removeEmpties = removeEmpties;
 //# sourceMappingURL=index.js.map
