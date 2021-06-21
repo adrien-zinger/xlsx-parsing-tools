@@ -77,7 +77,7 @@ function removeEmpties(table) {
     if (rm) column_to_remove.push(y)
   }
   for (const c of column_to_remove) table.splice(c, 1)
-  for (const l of lines_to_remove) for (let c of table) c.splice(l, 1)
+  for (const l of lines_to_remove) for (let c of table) c.splice(l - 1, 1)
   return table
 }
 
