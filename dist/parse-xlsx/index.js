@@ -125,8 +125,6 @@ function removeEmpties(table) {
     if (rm) lines_to_remove.push(x);
   }
 
-  console.log(lines_to_remove);
-
   for (var _y = 0; _y < width; ++_y) {
     var _rm = true;
 
