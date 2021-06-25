@@ -1,12 +1,12 @@
-import cleaner from "../src/json-cleaner/expanse-dots.js"
+import cleaner from '../src/json-cleaner/expanse-dots.js'
 
-test("Testing horizintal table style to json", () => {
+test('Testing horizintal table style to json', () => {
   const dirtyjson = {
-    n: "e",
-    "a.b": "e2",
+    n: 'e',
+    'a.b': 'e2',
     test: {
-      "n.m": {
-        v: "a",
+      'n.m': {
+        v: 'a',
       },
     },
   }

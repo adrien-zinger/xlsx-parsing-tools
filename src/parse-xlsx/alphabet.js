@@ -1,29 +1,29 @@
 const alphabet = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "X",
-  "Y",
-  "Z",
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'X',
+  'Y',
+  'Z',
 ]
 
 function* gen(start) {
@@ -37,7 +37,7 @@ function* gen(start) {
   }
 }
 
-function getAlphabetSerie(start = "A") {
+function getAlphabetSerie(start = 'A') {
   return gen(start)
 }
 

@@ -1,6 +1,6 @@
 export default {
   sheetignore: [],
   limits: {
-    default: ["A", "Z", 0, 24],
+    default: ['A', 'Z', 0, 24],
   },
 }
