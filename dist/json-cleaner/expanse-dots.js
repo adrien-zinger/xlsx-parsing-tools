@@ -7,7 +7,7 @@ exports["default"] = expanseDots;
 
 function containDot(str) {
   for (var i = 0; i < str.length; ++i) {
-    if (str[i] === ".") return i;
+    if (str[i] === '.') return i;
   }
 
   return -1;

@@ -15,7 +15,7 @@ var _regenerator2 = (0, _interopRequireDefault2["default"])(_regenerator);
 
 var _marked = /*#__PURE__*/_regenerator2["default"].mark(gen);
 
-var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "Z"];
+var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'Z'];
 
 function gen(start) {
   var index, alen;
@@ -62,7 +62,7 @@ function gen(start) {
 }
 
 function getAlphabetSerie() {
-  var start = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "A";
+  var start = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'A';
   return gen(start);
 }
 

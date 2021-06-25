@@ -14,6 +14,12 @@
 }
 */
 
+/**
+ *
+ * @param {*} table
+ * @param {object} adapters
+ * @returns
+ */
 export default function getJsonFromTable(
   table,
   { valueAdapter, keyAdapter, headAdapter, id } = {}
