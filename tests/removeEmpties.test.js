@@ -1,6 +1,5 @@
 import { removeEmpties } from "../src/parse-xlsx"
 
-/* eslint-disable no-undef */
 const table = [
   [
       "",

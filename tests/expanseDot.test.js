@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import cleaner from "../src/json-cleaner/expanse-dots.js"
 
 test("Testing horizintal table style to json", () => {
