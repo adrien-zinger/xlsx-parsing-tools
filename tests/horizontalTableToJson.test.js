@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import parser from "../src/parse-xlsx/horizontalStyle.js"
 
 test("Testing horizintal table style to json", () => {
