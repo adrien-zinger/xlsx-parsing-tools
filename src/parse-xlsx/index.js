@@ -1,7 +1,7 @@
-import XLSX from "xlsx"
-import { getAlphabetSerie } from "./alphabet.js"
+import XLSX from 'xlsx'
+import { getAlphabetSerie } from './alphabet.js'
 
-import default_config from "./config.js"
+import default_config from './config.js'
 
 /**
  *
@@ -28,27 +28,27 @@ function graps(worksheet, [letter_start, letter_end, num_start, num_end], map) {
 function xlsxMdPrint(table, cb) {
   function replaceLineJump(str) {
     return str
-      .split("")
+      .split('')
       .map((c) => {
-        if (c === "\n") return "\\n"
-        if (c === "\r") return ""
-        if (c === "\t") return ""
+        if (c === '\n') return '\\n'
+        if (c === '\r') return ''
+        if (c === '\t') return ''
         return c
       })
-      .join("")
+      .join('')
   }
   const height = table[0].length
   const width = table.length
-  let out = "|"
+  let out = '|'
   const serie = getAlphabetSerie()
   for (let i = 0; i < width; ++i) out += ` ${serie.next().value} |`
-  out += "\n|"
-  for (let i = 0; i < width; ++i) out += " ------ |"
+  out += '\n|'
+  for (let i = 0; i < width; ++i) out += ' ------ |'
   for (let x = 0; x < height; ++x) {
-    out += "\n|"
+    out += '\n|'
     for (let y = 0; y < width; ++y) out += ` ${replaceLineJump(table[y][x])} |`
   }
-  cb((out += "\n"))
+  cb((out += '\n'))
 }
 
 function removeEmpties(table) {
@@ -59,7 +59,7 @@ function removeEmpties(table) {
   for (let x = 0; x < height; ++x) {
     let rm = true
     for (let y = 0; y < width; ++y) {
-      if (table[y][x] != "") {
+      if (table[y][x] != '') {
         rm = false
         break
       }
@@ -69,7 +69,7 @@ function removeEmpties(table) {
   for (let y = 0; y < width; ++y) {
     let rm = true
     for (let x = 0; x < height; ++x) {
-      if (table[y][x] != "") {
+      if (table[y][x] != '') {
         rm = false
         continue
       }
@@ -87,8 +87,20 @@ function removeEmpties(table) {
 }
 
 /**
+ * @typedef xlsxParserConfigLimit
+ * @param {Array<number|string>} value [startLetter, endLetter, startNumber, endNumber]
  *
- * @param {*} config
+ * @typedef xlsxParserConfig
+ * @param {object<
+ * default: xlsxParserConfigLimit
+ * >[]} limits
+ * @param {string[]} sheetignore
+ */
+
+/**
+ * Parse an xlsx file
+ * @param {string} path
+ * @param {xlsxParserConfig} config
  * @returns {Promise}
  */
 function xlsxParser(path, config = undefined) {
@@ -98,11 +110,16 @@ function xlsxParser(path, config = undefined) {
     const workbook = XLSX.readFile(path)
     const { sheetignore, limits } = config
     for (const name of workbook.SheetNames) {
-      if (sheetignore.length > 0 && sheetignore.indexOf(name) >= 0) continue
+      if (
+        sheetignore !== undefined &&
+        sheetignore.length > 0 &&
+        sheetignore.indexOf(name) >= 0
+      )
+        continue
       var worksheet = workbook.Sheets[name]
-      const lims = limits[name] !== undefined ? limits[name] : limits["default"]
+      const lims = limits[name] !== undefined ? limits[name] : limits['default']
       const table = graps(worksheet, lims, (cell) => {
-        return cell === undefined ? "" : cell.v
+        return cell === undefined ? '' : cell.v
       })
       ret.push({
         sheetpage: name,

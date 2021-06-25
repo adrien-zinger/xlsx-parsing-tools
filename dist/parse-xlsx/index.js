@@ -72,38 +72,38 @@ function graps(worksheet, _ref, map) {
 
 function xlsxMdPrint(table, cb) {
   function replaceLineJump(str) {
-    return str.split("").map(function (c) {
-      if (c === "\n") return "\\n";
-      if (c === "\r") return "";
-      if (c === "\t") return "";
+    return str.split('').map(function (c) {
+      if (c === '\n') return '\\n';
+      if (c === '\r') return '';
+      if (c === '\t') return '';
       return c;
-    }).join("");
+    }).join('');
   }
 
   var height = table[0].length;
   var width = table.length;
-  var out = "|";
+  var out = '|';
   var serie = (0, _alphabet.getAlphabetSerie)();
 
   for (var i = 0; i < width; ++i) {
     out += " ".concat(serie.next().value, " |");
   }
 
-  out += "\n|";
+  out += '\n|';
 
   for (var _i = 0; _i < width; ++_i) {
-    out += " ------ |";
+    out += ' ------ |';
   }
 
   for (var x = 0; x < height; ++x) {
-    out += "\n|";
+    out += '\n|';
 
     for (var y = 0; y < width; ++y) {
       out += " ".concat(replaceLineJump(table[y][x]), " |");
     }
   }
 
-  cb(out += "\n");
+  cb(out += '\n');
 }
 
 function removeEmpties(table) {
@@ -116,7 +116,7 @@ function removeEmpties(table) {
     var rm = true;
 
     for (var y = 0; y < width; ++y) {
-      if (table[y][x] != "") {
+      if (table[y][x] != '') {
         rm = false;
         break;
       }
@@ -129,7 +129,7 @@ function removeEmpties(table) {
     var _rm = true;
 
     for (var _x = 0; _x < height; ++_x) {
-      if (table[_y][_x] != "") {
+      if (table[_y][_x] != '') {
         _rm = false;
         continue;
       }
@@ -151,8 +151,20 @@ function removeEmpties(table) {
   return table;
 }
 /**
+ * @typedef xlsxParserConfigLimit
+ * @param {Array<number|string>} value [startLetter, endLetter, startNumber, endNumber]
  *
- * @param {*} config
+ * @typedef xlsxParserConfig
+ * @param {object<
+ * default: xlsxParserConfigLimit
+ * >[]} limits
+ * @param {string[]} sheetignore
+ */
+
+/**
+ * Parse an xlsx file
+ * @param {string} path
+ * @param {xlsxParserConfig} config
  * @returns {Promise}
  */
 
@@ -175,11 +187,11 @@ function xlsxParser(path) {
     try {
       for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
         var name = _step2.value;
-        if (sheetignore.length > 0 && sheetignore.indexOf(name) >= 0) continue;
+        if (sheetignore !== undefined && sheetignore.length > 0 && sheetignore.indexOf(name) >= 0) continue;
         var worksheet = workbook.Sheets[name];
-        var lims = limits[name] !== undefined ? limits[name] : limits["default"];
+        var lims = limits[name] !== undefined ? limits[name] : limits['default'];
         var table = graps(worksheet, lims, function (cell) {
-          return cell === undefined ? "" : cell.v;
+          return cell === undefined ? '' : cell.v;
         });
         ret.push({
           sheetpage: name,
