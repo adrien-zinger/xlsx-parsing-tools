@@ -12,6 +12,13 @@ function containDot(str) {
 
   return -1;
 }
+/**
+ * Expanse keys with dots in objects object
+ * @example { 'a.b' = 'c' } => { 'a': { 'b': 'c' } }
+ * @param {object} obj object with wrong keys
+ * @returns expensed object
+ */
+
 
 function expanseDots(obj) {
   var ret = {};
@@ -41,4 +48,3 @@ function expanseDots(obj) {
 
   return ret;
 }
-//# sourceMappingURL=expanse-dots.js.map

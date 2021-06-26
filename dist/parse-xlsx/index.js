@@ -211,4 +211,3 @@ function xlsxParser(path) {
 exports.xlsxParser = xlsxParser;
 exports.xlsxMdPrint = xlsxMdPrint;
 exports.removeEmpties = removeEmpties;
-//# sourceMappingURL=index.js.map

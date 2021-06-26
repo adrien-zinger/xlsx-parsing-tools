@@ -3,6 +3,12 @@ function containDot(str) {
   return -1
 }
 
+/**
+ * Expanse keys with dots in objects object
+ * @example { 'a.b' = 'c' } => { 'a': { 'b': 'c' } }
+ * @param {object} obj object with wrong keys
+ * @returns expensed object
+ */
 export default function expanseDots(obj) {
   const ret = {}
   for (const key of Object.keys(obj)) {

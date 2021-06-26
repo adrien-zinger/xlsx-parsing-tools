@@ -20,10 +20,15 @@ var _horizontalStyle = require("./parse-xlsx/horizontalStyle");
 var _horizontalStyle2 = (0, _interopRequireDefault2["default"])(_horizontalStyle);
 
 var cleaner = {
+  /**
+   * Expanse keys with dots in objects object
+   * @example { 'a.b' = 'c' } => { 'a': { 'b': 'c' } }
+   * @param {object} obj object with wrong keys
+   * @returns expensed object
+   */
   expanseDot: _expanseDots2["default"]
 };
 exports.xlsxMdPrint = _index.xlsxMdPrint;
 exports.xlsxParser = _index.xlsxParser;
 exports.cleaner = cleaner;
 exports.hTableToJson = _horizontalStyle2["default"];
-//# sourceMappingURL=index.js.map

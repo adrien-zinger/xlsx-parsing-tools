@@ -22,10 +22,15 @@ exports["default"] = getJsonFromTable;
 */
 
 /**
- *
+ * @typedef AdapterObject
+ * @type {object}
+ */
+
+/**
+ * Transforms a two dimensional table in a json object
  * @param {*} table
  * @param {object} adapters
- * @returns
+ * @returns json object of a two dimensional table
  */
 function getJsonFromTable(table) {
   var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
@@ -84,4 +89,3 @@ function getJsonFromTable(table) {
 
   return out;
 }
-//# sourceMappingURL=horizontalStyle.js.map
