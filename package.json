@@ -25,7 +25,7 @@
   },
   "scripts": {
     "test": "jest",
-    "compile": "babel src --out-dir dist --source-maps --presets=@babel/env",
+    "compile": "babel src --out-dir dist --presets=@babel/env",
     "xlsx": "npx babel-node ./scripts/checkXLSX.js > out.md",
     "prettify": "prettier --write '{,!(node_modules)/**/}*.js'",
     "eslint-plugin-jest": "^24.3.6"

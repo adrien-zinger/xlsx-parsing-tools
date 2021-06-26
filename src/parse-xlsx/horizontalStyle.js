@@ -15,10 +15,15 @@
 */
 
 /**
- *
+ * @typedef AdapterObject
+ * @type {object}
+ */
+
+/**
+ * Transforms a two dimensional table in a json object
  * @param {*} table
  * @param {object} adapters
- * @returns
+ * @returns json object of a two dimensional table
  */
 export default function getJsonFromTable(
   table,

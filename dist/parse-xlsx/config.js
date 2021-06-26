@@ -9,4 +9,3 @@ exports["default"] = {
     "default": ['A', 'Z', 0, 24]
   }
 };
-//# sourceMappingURL=config.js.map

@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/parse-xlsx/config.js"],"names":["sheetignore","limits"],"mappings":";;;;;qBAAe;AACbA,EAAAA,WAAW,EAAE,EADA;AAEbC,EAAAA,MAAM,EAAE;AACN,eAAS,CAAC,GAAD,EAAM,GAAN,EAAW,CAAX,EAAc,EAAd;AADH;AAFK,C","sourcesContent":["export default {\n  sheetignore: [],\n  limits: {\n    default: ['A', 'Z', 0, 24],\n  },\n}\n"],"file":"config.js"}
